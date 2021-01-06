@@ -1,9 +1,15 @@
 const http = require('http');
 const Koa = require('koa');
 const koaBody = require('koa-body');
+const cors = require('koa2-cors');
 const { prependOnceListener } = require('process');
 const app = new Koa();
 
+
+app.use(koaBody ({ multipart: true }));
+app.use(cors({
+  origin: '*',
+}));
 
 const tickets = [{
   id: 0,
@@ -78,4 +84,6 @@ app.use(async (ctx) => {
   }
 });
 
-const server = http.createServer(app.callback()).listen(7070);
+
+const port = process.env.PORT || 7070;
+const server = http.createServer(app.callback()).listen(port);
