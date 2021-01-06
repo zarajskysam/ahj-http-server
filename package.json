@@ -1,0 +1,17 @@
+{
+  "name": "serverhttp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "forever server.js",
+    "watch": "forever -w server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "forever": "^3.0.4",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0"
+  }
+}
